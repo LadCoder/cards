@@ -13,7 +13,7 @@ module.exports = {
     watchContentBase: true
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.jsx', '.tsx', '.ts', '.js' ],
   },
   
   // Rules of how webpack will take our files, complie & bundle them for the browser 

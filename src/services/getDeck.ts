@@ -2,6 +2,7 @@ import { Suit, Value } from "../types/card"
 import { Deck } from "../types/deck"
 import { Game, GameType } from "../types/game"
 import { createCard } from "./createCard"
+import { getRandomNumber } from "./utilities"
 
 export const getDeck = (game: Game) : Deck => {
     switch(game.gameType) {
@@ -27,7 +28,20 @@ export const getDeckWithSize = (size: number) : Deck => {
     return deck
 }
 
-const getPokerDeck = () : Deck => {
+export const shuffleDeck = (deck: Deck) : Deck => {
+    let shuffledDeck = deck
+
+    for (let i = 0; i < deck.length - 2; i++) {
+        const swapIndex = getRandomNumber(i, deck.length - 1)
+        const temp = shuffledDeck[swapIndex]
+        shuffledDeck[swapIndex] = shuffledDeck[i]
+        shuffledDeck[i] = temp 
+    }
+
+    return shuffledDeck
+}
+
+export const getPokerDeck = () : Deck => {
     const deck : Deck = []
 
     for (const suit in Suit) {

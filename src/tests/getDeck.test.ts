@@ -1,4 +1,4 @@
-import { getDeck, getDeckWithSize } from '../services/getDeck'
+import { getDeck, getDeckWithSize, getPokerDeck, shuffleDeck } from '../services/getDeck'
 import { Game, GameType } from '../types/game'
 
 describe("test getDeck function", () => {
@@ -19,3 +19,12 @@ describe("test getDeckWithSize function", () => {
         expect(getDeckWithSize(14)).toHaveLength(52)
     })
 })
+
+describe("test shuffleDeck function", () => {
+    it("should shuffle a deck for shuffleDeck(Deck)", () => {
+        const deck = getPokerDeck()
+        const shuffledDeck = shuffleDeck(deck)
+        expect(shuffledDeck).not.toContainEqual(deck)
+    })
+})
+
