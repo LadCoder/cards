@@ -33,8 +33,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+            }
+          }
+        ]
+      },
     ]
   },
   plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],

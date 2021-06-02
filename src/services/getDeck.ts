@@ -1,4 +1,4 @@
-import { Suit, Value } from "../types/card"
+import { Suit, suits, Value, values } from "../types/card"
 import { Deck } from "../types/deck"
 import { Game, GameType } from "../types/game"
 import { createCard } from "./createCard"
@@ -16,14 +16,13 @@ export const getDeck = (game: Game) : Deck => {
 export const getDeckWithSize = (size: number) : Deck => {
     const deck : Deck = []
     const length = size > 13 ? 13 : size
-    const values = Object.values(Value)
 
-    for (const suit in Suit) {
+    suits.map(suit => {
         for (let i = 0; i < length; i++) {
             const card = createCard(suit, values[i])
             deck.push(card)
         }
-    }
+    })
 
     return deck
 }
@@ -44,12 +43,11 @@ export const shuffleDeck = (deck: Deck) : Deck => {
 export const getPokerDeck = () : Deck => {
     const deck : Deck = []
 
-    for (const suit in Suit) {
-        for (const value in Value) {
-            const card = createCard(suit, value)
-            deck.push(card)
-        }
-    }
+    suits.map(suit => {
+        values.map(value => {
+            deck.push(createCard(suit, value))
+        })
+    })
 
     return deck
 }

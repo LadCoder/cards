@@ -1,0 +1,60 @@
+:root {
+    --card-face-color: #fff;
+    --card-4-color-clubs: #090;
+    --card-4-color-spades: #000;
+    --card-4-color-hearts: #f00;
+    --card-4-color-diamonds: #00f;
+    --card-2-color-clubs: #000;
+    --card-2-color-spades: #000;
+    --card-2-color-hearts: #f00;
+    --card-2-color-diamonds: #f00;
+}
+
+.wrapper {
+    display: flex;
+    margin: 10px;
+    padding: 0;
+    perspective: 1000px;
+}
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 100px;
+    width: 75px;
+    font-size:xx-large;
+    font: 'Arial, Helvetica, sans-serif';
+}
+
+.front {
+    background: var(--card-face-color);
+}
+
+*.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.hearts {
+    color: var(--card-4-color-hearts)!important;
+}
+.clubs {
+    color: var(--card-4-color-clubs);
+}
+.spades {
+    color: var(--card-4-color-spades);
+}
+.diamonds {
+    color: var(--card-4-color-diamonds);
+}

@@ -25,3 +25,26 @@ export enum Value {
     Queen = "Q",
     King = "K"
 }
+
+export const values: Value[] = [
+    Value.Ace, 
+    Value.Two, 
+    Value.Three, 
+    Value.Four, 
+    Value.Five, 
+    Value.Six, 
+    Value.Seven, 
+    Value.Eight, 
+    Value.Nine, 
+    Value.Ten, 
+    Value.Jack, 
+    Value.Queen, 
+    Value.King
+]
+
+export const suits: Suit[] = [
+    Suit.Clubs,
+    Suit.Diamonds,
+    Suit.Hearts,
+    Suit.Spades
+]
