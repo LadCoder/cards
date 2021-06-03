@@ -1,54 +1,60 @@
 import * as React from 'react'
-import { useState } from 'react'
-import { Card, Suit, Value } from '../types/card'
+import { combineClassNames } from '../services/utilities'
+import { Card, Suit } from '../types/card'
+import { ColorOption } from '../types/deck'
 import styles from './Card.module.css'
 
 interface Props {
     card: Card
+    colorOption?: ColorOption
 }
 
-export default function Card({ card }: Props) {
+export default function Card({ 
+    card, 
+    colorOption = ColorOption.TwoColor 
+}: Props) {
     const { suit, value } = card
-    const suitClass = getSuitClass(suit)
-    const [showCard, setShowCard] = useState<boolean>(true)
-
-    const flipCard = () => setShowCard(!showCard)
+    const suitClass = getSuitClass(suit, colorOption)
+    const suitIcon = getSuitIcon(suit)
 
     return (
-        <div className={[styles.wrapper, styles.unselectable].join(' ')} onClick={flipCard}>
-            <div className={[styles.card, showCard ? styles.front : styles.back].filter(Boolean).join(' ')}>
-                <div className={styles.details}>
-                    <div className={[styles.value, suitClass].join(' ')}>
+        <div className={combineClassNames(styles.card, styles.unselectable)}>
+            <div className={styles.details}>
+                <div className={styles.front}>
+                    <div className={combineClassNames(styles.value, suitClass)}>
                         {value}
                     </div>
-                    <div className={[styles.suit, suitClass].join(' ')}>
-                        {getSuitIcon(suit)}
+                    <div className={combineClassNames(styles.suit, suitClass)}>
+                        {suitIcon}
+                    </div>
+                    <div className={combineClassNames(styles.bigSuit, suitClass)}>
+                        {suitIcon}
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-
+    
 const getSuitIcon = (suit: Suit) => {
     switch(suit) {
         case Suit.Clubs:
-            return '\u2663'
+            return '♣'
         case Suit.Diamonds: 
-            return '\♦'
+            return '♦'
         case Suit.Hearts: 
-            return '\♥'
+            return '♥'
         case Suit.Spades: 
-            return '\♠'
+            return '♠'
     }
 }
 
-const getSuitClass = (suit: Suit) => {
+const getSuitClass = (suit: Suit, colors: ColorOption) => {
     switch(suit) {
         case Suit.Clubs: 
-            return (styles.clubs)
+            return (combineClassNames(styles.clubs, colors === ColorOption.FourColor ? styles.fourColor : null))
         case Suit.Diamonds: 
-            return (styles.diamonds)
+            return (combineClassNames(styles.diamonds, colors === ColorOption.FourColor ? styles.fourColor : null))
         case Suit.Hearts: 
             return (styles.hearts)
         case Suit.Spades: 

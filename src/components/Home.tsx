@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { getPokerDeck, shuffleDeck } from '../services/getDeck'
-import { Deck } from '../types/deck'
+import { ColorOption, Deck } from '../types/deck'
 import Card from './Card'
 
 export default function Home({ }) {
@@ -13,9 +13,11 @@ export default function Home({ }) {
         setDeck(pokerDeck)
     }, [])
 
-    return <div style={{ display: "flex", flexDirection: "row", width: "100%", flexWrap: "wrap", margin: "10px" }}>
+    return <div style={{ display: "flex", flexDirection: "row", width: "100%", flexWrap: "wrap", margin: "10px", background: "#eee" }}>
         {deck.map((card, i) => 
-            <Card key={i} card={card} />
+            <div key={i} style={{ margin: "10px" }}>
+                <Card key={i} card={card} colorOption={ColorOption.FourColor}/>
+            </div>
         )}
 
         <div>
