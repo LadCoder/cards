@@ -1,10 +1,10 @@
 .button {
     border: none;
     border-radius: 0.2rem;
-    width: 100px;
-    height: 40px;
+    padding: 10px;
     color: var(--primary-text-color);
     cursor: pointer;
+    font-weight: 700;
 }
 
 .danger {
