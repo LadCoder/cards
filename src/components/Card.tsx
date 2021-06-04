@@ -9,7 +9,7 @@ interface Props {
     colorOption?: ColorOption
 }
 
-export default function Card({ 
+export default function Card({
     card, 
     colorOption = ColorOption.TwoColor 
 }: Props) {

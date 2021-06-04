@@ -11,8 +11,7 @@
 }
 
 .card {
-    display: inline-block;
-    position: relative;
+    display: inline-flex;
     width: 5rem;
     height: 7rem;
     background: var(--card-face-color);
