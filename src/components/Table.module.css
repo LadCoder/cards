@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;;
+    align-self: center;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100vh;
+}
+
+.table {
+    background-image: radial-gradient(circle, var(--green-color), var(--green-hover-color));
+    height: 500px;
+    width: 80%;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 1em solid var(--gold-color);
+}
+
+.board {
+    position: relative;
+    top: 40%;
+    left: 30%;
+}

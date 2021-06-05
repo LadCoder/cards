@@ -1,6 +1,7 @@
 import { Suit, suits, Value, values } from "../types/card"
 import { Deck } from "../types/deck"
 import { Game, GameType } from "../types/game"
+import { Player } from "../types/player"
 import { createCard } from "./createCard"
 import { getRandomNumber } from "./utilities"
 
@@ -38,6 +39,22 @@ export const shuffleDeck = (deck: Deck) : Deck => {
     }
 
     return shuffledDeck
+}
+
+export const dealWholeCards = (deck: Deck, players: Player[]) => {
+    const newDeck = deck
+    const newPlayers = players
+    for(let card = 0; card < 2; card++) {
+        newPlayers.map(player => {
+            if (deck.length > 0){
+                const dealtCard = newDeck.pop()
+                player.hand 
+                    ? player.hand[card] = dealtCard 
+                    : player.hand = [dealtCard]
+            } else { console.log('No cards left!') }
+        })
+    }
+    return { newDeck, newPlayers }
 }
 
 export const getPokerDeck = () : Deck => {

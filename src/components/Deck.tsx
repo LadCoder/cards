@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
-import { getPokerDeck, shuffleDeck } from '../services/getDeck'
 import { combineClassNames } from '../services/utilities'
 import { ColorOption, Deck } from '../types/deck'
 import Card from './Card'
